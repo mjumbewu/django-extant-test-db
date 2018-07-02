@@ -5,7 +5,7 @@ try:
     from django.test.runner import dependency_ordered
 except:
     # Django 1.8+
-    from django.test.util import dependency_ordered
+    from django.test.utils import dependency_ordered
 
 
 
