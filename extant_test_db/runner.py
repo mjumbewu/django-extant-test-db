@@ -1,5 +1,12 @@
-from django.test.runner import dependency_ordered
 from django.test.runner import DiscoverRunner as BaseDiscoverRunner
+
+try:
+    # Pre-Django 1.8
+    from django.test.runner import dependency_ordered
+except:
+    # Django 1.8+
+    from django.test.util import dependency_ordered
+
 
 
 class DiscoverRunner(BaseDiscoverRunner):
