@@ -129,4 +129,10 @@ def setup_databases(verbosity, interactive, keepdb=False, debug_sql=False, **kwa
     if debug_sql:
         for alias in connections:
             connections[alias].force_debug_cursor = True
-    return old_names, mirrors
+
+    # Prior to version 1.9, this function returns the mirrors. Stopped returning
+    # mirrors in https://github.com/django/django/commit/e8bfc1c74767ba902846ed.
+    if django.VERSION < (1, 9):
+        return old_names, mirrors
+    else:
+        return old_names
