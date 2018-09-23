@@ -1,3 +1,4 @@
+import django
 from django.test.runner import DiscoverRunner as BaseDiscoverRunner
 
 try:
